@@ -9,7 +9,8 @@ const App: React.FC = () => {
       <Navbar />
 
       {/* Main app content */}
-      <div className="col-sm-6 offset-sm-3 text-center">
+      <h1 className="text-center">Save Time, Catch More Fish</h1>
+      <div className="col-sm-6 offset-sm-3 text-center main-container">
         <HomePage />
       </div>
     </div>
