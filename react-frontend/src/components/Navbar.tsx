@@ -1,16 +1,41 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 const Navbar: React.FC = () => {
   return (
-    <nav>
-      <h1>Angler's Edge</h1>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/fish/1">FAQ</Link></li>
-        <li><Link to="/fish/1">Resources</Link></li>
-        <li><Link to="/fish/1">Donate</Link></li>
-      </ul>
+    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div className="container-fluid">
+        {/* Logo */}
+        <a className="navbar-brand" href="/">
+          <img
+            src="/src/assets/Black-Transparent.png" // Replace with the actual path to your logo
+            alt="Angler's Edge Logo"
+            height="80" // Adjust the height as needed
+          />
+        </a>
+        {/* Tabs */}
+        <ul className="navbar-nav">
+          <li className="nav-item">
+            <a className="nav-link" href="/">
+              Home
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="/faq">
+              FAQ
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="/locations">
+              Locations
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="/about">
+              About
+            </a>
+          </li>
+        </ul>
+      </div>
     </nav>
   );
 };
