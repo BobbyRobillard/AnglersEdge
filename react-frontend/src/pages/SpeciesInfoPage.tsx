@@ -45,31 +45,48 @@ const SpeciesInfoPage = ({
             </ul>
           </div>
 
-          {/* Current Trends */}
+          {/* Seasonal Trends */}
           <div className="col">
-            <h4>Current Trends</h4>
+            <h4>Seasonal Trends</h4>
             <hr />
             <ul>
-              <li>Current Trend 1</li>
-              <li>Current Trend 2</li>
-              <li>Current Trend 3</li>
+              <li>Seasonal Trend 1</li>
+              <li>Seasonal Trend 2</li>
+              <li>Seasonal Trend 3</li>
             </ul>
           </div>
         </div>
 
         <div className="row">
-          {/* Current Techniques */}
+
+          {/* Structure */}
           <div className="col">
-            <h4>Current Techniques</h4>
+            <h4>Structures</h4>
             <hr />
             <ul>
-              <li>Current Technique 1</li>
-              <li>Current Technique 2</li>
-              <li>Current Technique 3</li>
+              <li>Structure 1</li>
+              <li>Structure 2</li>
+              <li>Structure 3</li>
             </ul>
           </div>
 
-          {/* Video Tutorial */}
+          {/* Baits and Techniques */}
+          <div className="col">
+            <h4>Baits and Techniques</h4>
+            <hr />
+            <ul>
+              <li>Bait 1</li>
+              <li>Bait 2</li>
+              <li>Technique 1</li>
+              <li>Technique 2</li>
+            </ul>
+          </div>
+
+        
+        </div>
+
+        <div className="row">
+            {/* Video Tutorial */}
           <div className="col">
             <h4>Video Tutorial</h4>
             <hr />
