@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import SpecificLocationPage from "./SpecificLocationPage"; // Import the specific page component
 
 const HomePage = () => {
   const [selectedSpecies, setSelectedSpecies] = useState(""); // Track selected species
   const [location, setLocation] = useState("");
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState<string[]>([]);
+  const [viewSpecificPage, setViewSpecificPage] = useState(false); // Toggle view
 
   const handleSpeciesClick = (species: string) => {
     setSelectedSpecies(species);
@@ -46,15 +48,33 @@ const HomePage = () => {
   };
 
   const handleSearch = () => {
-    console.log(`Searching for ${selectedSpecies} in ${location}`);
-    // Add logic to navigate to search results or perform API call
+    if (selectedSpecies && location) {
+      setViewSpecificPage(true); // Show specific location page
+    } else {
+      alert("Please select a species and location!");
+    }
   };
 
+  const goBack = () => {
+    setViewSpecificPage(false); // Return to the main page
+  };
 
+  // If viewing the specific location page, render it
+  if (viewSpecificPage) {
+    return (
+      <SpecificLocationPage
+        species={selectedSpecies}
+        location={location}
+        goBack={goBack}
+      />
+    );
+  }
+
+  // Main homepage rendering
   return (
     <>
-    <h1 className="">Save Time, Catch More Fish</h1>
-    <div className="main-container">
+      <h1 className="">Save Time, Catch More Fish</h1>
+      <div className="main-container">
         <h3>Select Target Species</h3>
         <div className="row">
           <div
@@ -81,7 +101,7 @@ const HomePage = () => {
         </div>
 
         <div className="row" style={{ marginTop: "20px" }}>
-          <div className="col">
+          <div className="col" style={{ position: "relative" }}>
             <h3>Select Location</h3>
             <input
               type="text"
@@ -103,12 +123,11 @@ const HomePage = () => {
               className="btn btn-lg btn-primary"
               onClick={handleSearch}
             >
-              Start Catching
+              Show Fishing Info
             </button>
           </div>
         </div>
-
-    </div>
+      </div>
     </>
   );
 };
