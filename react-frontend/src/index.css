@@ -22,6 +22,16 @@ h1 {
     margin-top: 50px;
 }
 
+ h4, h3 {
+    letter-spacing: -2px;
+    margin-top: 20px;
+ }
+
+ h4 {
+    font-size: 20px;
+    font-weight: 300;
+ }
+
 .main-container {
     background-color: white;
     padding: 50px;
@@ -29,3 +39,24 @@ h1 {
     margin-top:25px;
     box-shadow: 2px 3px 5px 0px rgba(201, 189, 201, 1);
 }
+
+.species-img {
+    max-width: 100%;
+}
+
+.highlight {
+    border: 2px solid orange;
+    background-color: rgba(255, 165, 0, 0.2);
+    transition: background-color 0.3s ease, border 0.3s ease;
+  }
+  
+  .col-4 {
+    cursor: pointer;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .col-4 img {
+    width: 100px;
+    height: auto;
+  }
