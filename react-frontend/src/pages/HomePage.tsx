@@ -1,18 +1,55 @@
 import React, { useState } from "react";
 
 const HomePage = () => {
-  const [location, setLocation] = useState("");
   const [selectedSpecies, setSelectedSpecies] = useState(""); // Track selected species
-
-  const handleSearch = () => {
-    console.log(`Searching for ${selectedSpecies} in ${location}`);
-    // Package data, send to backend.
-    // Retrieve data, render results to SpeciesInfoPage.
-  };
+  const [location, setLocation] = useState("");
+  const [query, setQuery] = useState("");
+  const [suggestions, setSuggestions] = useState<string[]>([]);
 
   const handleSpeciesClick = (species: string) => {
     setSelectedSpecies(species);
   };
+
+  // Pre-populated array of locations
+  const locationList = [
+    "Lake Okeechobee",
+    "Everglades National Park",
+    "Key West",
+    "Miami Beach",
+    "Orlando Lakes",
+    "Tampa Bay",
+    "St. Augustine",
+    "Panama City Beach",
+    "Destin Harbor",
+    "Pensacola Bay",
+  ];
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setQuery(value);
+
+    // Filter the pre-populated array
+    if (value) {
+      const filteredLocations = locationList.filter((loc) =>
+        loc.toLowerCase().includes(value.toLowerCase())
+      );
+      setSuggestions(filteredLocations);
+    } else {
+      setSuggestions([]);
+    }
+  };
+
+  const handleSuggestionClick = (suggestion: string) => {
+    setLocation(suggestion); // Set the selected location
+    setQuery(suggestion); // Update the input field
+    setSuggestions([]); // Clear the suggestions
+  };
+
+  const handleSearch = () => {
+    console.log(`Searching for ${selectedSpecies} in ${location}`);
+    // Add logic to navigate to search results or perform API call
+  };
+
 
   return (
     <>
@@ -42,18 +79,35 @@ const HomePage = () => {
             <h4>Mangrove Snapper</h4>
           </div>
         </div>
+
         <div className="row" style={{ marginTop: "20px" }}>
           <div className="col">
             <h3>Select Location</h3>
             <input
               type="text"
-              placeholder="Enter A Fishing location..."
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
+              placeholder="Enter A Fishing Location..."
+              value={query}
+              onChange={handleInputChange}
             />
-            <button className="btn btn-lg btn-primary" onClick={handleSearch}>Start Catching</button>
+            <ul className="suggestions-list">
+              {suggestions.map((suggestion, index) => (
+                <li
+                  key={index}
+                  onClick={() => handleSuggestionClick(suggestion)}
+                >
+                  {suggestion}
+                </li>
+              ))}
+            </ul>
+            <button
+              className="btn btn-lg btn-primary"
+              onClick={handleSearch}
+            >
+              Start Catching
+            </button>
           </div>
         </div>
+
     </div>
     </>
   );
