@@ -10,24 +10,27 @@ const HomePage = () => {
   };
 
   return (
-    <div>
-      <h2>Find Your Catch</h2>
-      <div>
+    <>
+    <h1 className="">Save Time, Catch More Fish</h1>
+    <div className="main-container">
+        <h3>Select Target Species</h3>
+        <div className="row">
+          <div className="col-4">
+            <img src="/src/assets/snook.png" alt="" />
+          </div>
+          <div className="col-4"></div>
+          <div className="col-4"></div>
+        </div>
+        <h3>Select Location</h3>
         <input
           type="text"
-          placeholder="Enter species"
-          value={species}
-          onChange={(e) => setSpecies(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Enter location"
+          placeholder="Enter A Fishing location..."
           value={location}
           onChange={(e) => setLocation(e.target.value)}
         />
-        <button onClick={handleSearch}>Search</button>
-      </div>
+        <button className="btn btn-lg btn-primary" onClick={handleSearch}>Start Catching</button>
     </div>
+    </>
   );
 };
 

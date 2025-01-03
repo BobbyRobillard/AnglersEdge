@@ -9,9 +9,9 @@ const App: React.FC = () => {
       <Navbar />
 
       {/* Main app content */}
-      <main className="container mt-4">
+      <div className="col-sm-6 offset-sm-3 text-center">
         <HomePage />
-      </main>
+      </div>
     </div>
   );
 };

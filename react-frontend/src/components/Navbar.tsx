@@ -9,7 +9,7 @@ const Navbar: React.FC = () => {
           <img
             src="/src/assets/Black-Transparent.png" // Replace with the actual path to your logo
             alt="Angler's Edge Logo"
-            height="80" // Adjust the height as needed
+            height="100" // Adjust the height as needed
           />
         </a>
         {/* Tabs */}
