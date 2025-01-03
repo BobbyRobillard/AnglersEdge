@@ -3,7 +3,7 @@ import React from 'react';
 const speciesImageMap: Record<string, string> = {
   Snook: '/src/assets/snook.png',
   Redfish: '/src/assets/redfish.png',
-  'Mangrove Snapper': '/src/assets/mangrove.png',
+  'Mangrove Snapper': '/src/assets/mangrove_snapper.png',
 };
 
 interface Section {

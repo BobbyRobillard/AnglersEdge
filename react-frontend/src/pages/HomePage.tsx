@@ -1,8 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SpecificLocationPage from './SpecificLocationPage';
 import SpeciesInfoPage from './SpeciesInfoPage';
+import { fetchFish } from '../services/ApiService'; // Fetch species data from API
 
-const HomePage = () => {
+interface Fish {
+  id: number;
+  species: string;
+}
+
+const HomePage: React.FC = () => {
+  const [speciesList, setSpeciesList] = useState<Fish[]>([]); // Dynamically fetched species
   const [selectedSpecies, setSelectedSpecies] = useState('');
   const [location, setLocation] = useState('');
   const [query, setQuery] = useState('');
@@ -11,6 +18,22 @@ const HomePage = () => {
   const [viewPage, setViewPage] = useState<'home' | 'location' | 'species'>(
     'home'
   );
+
+  const [error, setError] = useState<string | null>(null); // Error handling
+
+  useEffect(() => {
+    // Fetch species data from API
+    const loadSpecies = async () => {
+      try {
+        const data = await fetchFish();
+        setSpeciesList(data);
+      } catch (err) {
+        setError('Failed to load species data.');
+      }
+    };
+
+    loadSpecies();
+  }, []);
 
   const handleSpeciesClick = (species: string) => {
     setSelectedSpecies(species);
@@ -92,6 +115,8 @@ const HomePage = () => {
   }
 
   // Main homepage rendering
+  if (error) return <p>{error}</p>;
+
   return (
     <>
       <div className="row">
@@ -106,27 +131,20 @@ const HomePage = () => {
       </div>
       <h3>Select Target Species</h3>
       <div className="row">
-        <div
-          className={`col-4 ${selectedSpecies === 'Snook' ? 'highlight' : ''}`}
-          onClick={() => handleSpeciesClick('Snook')}
-        >
-          <img className="species-img" src="/src/assets/snook.png" alt="" />
-          <h4>Snook</h4>
-        </div>
-        <div
-          className={`col-4 ${selectedSpecies === 'Redfish' ? 'highlight' : ''}`}
-          onClick={() => handleSpeciesClick('Redfish')}
-        >
-          <img className="species-img" src="/src/assets/redfish.png" alt="" />
-          <h4>Red Drum (Redfish)</h4>
-        </div>
-        <div
-          className={`col-4 ${selectedSpecies === 'Mangrove Snapper' ? 'highlight' : ''}`}
-          onClick={() => handleSpeciesClick('Mangrove Snapper')}
-        >
-          <img className="species-img" src="/src/assets/mangrove.png" alt="" />
-          <h4>Mangrove Snapper</h4>
-        </div>
+        {speciesList.map((fish) => (
+          <div
+            key={fish.id}
+            className={`col-4 ${selectedSpecies === fish.species ? 'highlight' : ''}`}
+            onClick={() => handleSpeciesClick(fish.species)}
+          >
+            <img
+              className="species-img"
+              src={`/src/assets/${fish.species.toLowerCase().replace(' ', '_')}.png`}
+              alt={fish.species}
+            />
+            <h4>{fish.species}</h4>
+          </div>
+        ))}
       </div>
 
       {locationSpecificMode && (

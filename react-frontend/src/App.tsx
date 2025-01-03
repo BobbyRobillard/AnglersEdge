@@ -1,7 +1,6 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
-import FishList from './features/FishList';
 
 const App: React.FC = () => {
   return (
@@ -12,7 +11,6 @@ const App: React.FC = () => {
       {/* Main app content */}
       <h1 className="text-center">Save Time, Catch More Fish</h1>
       <div className="col-sm-6 offset-sm-3 text-center main-container">
-        <FishList />
         <HomePage />
       </div>
     </div>
