@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
 // Mapping of species to their respective image URLs
 const speciesImageMap: Record<string, string> = {
-  "Snook": "/src/assets/snook.png",
-  "Redfish": "/src/assets/redfish.png",
-  "Mangrove Snapper": "/src/assets/mangrove.png",
+  Snook: '/src/assets/snook.png',
+  Redfish: '/src/assets/redfish.png',
+  'Mangrove Snapper': '/src/assets/mangrove.png',
 };
 
 const SpecificLocationPage = ({
@@ -17,20 +17,18 @@ const SpecificLocationPage = ({
   goBack: () => void;
 }) => {
   // Get the image URL for the selected species or a fallback image
-  const imageUrl = speciesImageMap[species] || "/src/assets/default.png";
+  const imageUrl = speciesImageMap[species] || '/src/assets/default.png';
 
   return (
     <>
-      
       <div className="main-container">
-
         <div className="row">
           {/* Species Image */}
           <div className="col-3">
             <img
               src={imageUrl}
               alt={`${species} illustration`}
-              style={{ width: "100%", height: "auto" }}
+              style={{ width: '100%', height: 'auto' }}
             />
           </div>
           {/* Species and Location Information */}
@@ -88,9 +86,8 @@ const SpecificLocationPage = ({
         </div>
 
         <button onClick={goBack} className="btn btn-secondary">
-            Go Back
+          Go Back
         </button>
-
       </div>
     </>
   );
