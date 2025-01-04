@@ -19,8 +19,8 @@ const SpeciesDetails = ({ sections }: { sections: Section[] }) => {
               </thead>
               <tbody>
                 {section.items.map((item, idx) => (
-                  <tr>
-                    <td key={idx}>{item}</td>
+                  <tr key={idx}>
+                    <td>{item}</td>
                   </tr>
                 ))}
               </tbody>
