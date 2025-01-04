@@ -1,0 +1,11 @@
+[
+{
+    "model": "api.food",
+    "pk": 2,
+    "fields": {
+        "name": "Shrimp",
+        "properties": "Small",
+        "notes": "Utilize proper hooking setup."
+    }
+}
+]

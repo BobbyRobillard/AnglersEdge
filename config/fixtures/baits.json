@@ -1,0 +1,38 @@
+[
+{
+    "model": "api.bait",
+    "pk": 1,
+    "fields": {
+        "name": "Pilchards",
+        "properties": "Small\r\nScaly\r\nOily",
+        "notes": "Schooling fish"
+    }
+},
+{
+    "model": "api.bait",
+    "pk": 2,
+    "fields": {
+        "name": "Fiddler Crab",
+        "properties": "Small crustacean\r\nBury in sand around mangroves",
+        "notes": "Come out during low-tide to feed."
+    }
+},
+{
+    "model": "api.bait",
+    "pk": 3,
+    "fields": {
+        "name": "Shrimp",
+        "properties": "Crustacean\r\nSmall to medium size\r\nMove inshore during winter months for shrimp migration\r\nEverything eats them",
+        "notes": "Hook through the horn or tail for best effects.\r\nWatch out to not get stabbed by the horn."
+    }
+},
+{
+    "model": "api.bait",
+    "pk": 4,
+    "fields": {
+        "name": "Swimbait",
+        "properties": "Many different types",
+        "notes": "Utilize proper action."
+    }
+}
+]

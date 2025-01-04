@@ -6,19 +6,19 @@ echo "This script deletes and recreates fixtures for the devenv!"
 echo "*************************************************"
 echo
 
-# read -p "Are you sure you want to continue? (yes/no) "
-# if [ "$REPLY" != "yes" ]; then
-#   exit 0
-# fi
-# echo
+read -p "Are you sure you want to continue? (yes/no) "
+if [ "$REPLY" != "yes" ]; then
+  exit 0
+fi
+echo
 
-source ~/venv/bin/activate
+source ~/AnglersEdge/venv/bin/activate
 rm -rf /vagrant/config/fixtures/*
-python manage.py dumpdata auth.User --indent 4 > /vagrant/config/fixtures/users.json
-python manage.py dumpdata api.Trend --indent 4 > /vagrant/config/fixtures/trends.json
-python manage.py dumpdata api.Technique --indent 4 > /vagrant/config/fixtures/techniques.json
-python manage.py dumpdata api.Bait --indent 4 > /vagrant/config/fixtures/baits.json
-python manage.py dumpdata api.Food --indent 4 > /vagrant/config/fixtures/foods.json
-python manage.py dumpdata api.Structure --indent 4 > /vagrant/config/fixtures/structures.json
-python manage.py dumpdata api.Fish --indent 4 > /vagrant/config/fixtures/fishs.json
+python manage.py dumpdata auth.User --indent 4 > ~/AnglersEdge/config/fixtures/users.json
+python manage.py dumpdata api.Trend --indent 4 > ~/AnglersEdge/config/fixtures/trends.json
+python manage.py dumpdata api.Technique --indent 4 > ~/AnglersEdge/config/fixtures/techniques.json
+python manage.py dumpdata api.Bait --indent 4 > ~/AnglersEdge/config/fixtures/baits.json
+python manage.py dumpdata api.Food --indent 4 > ~/AnglersEdge/config/fixtures/foods.json
+python manage.py dumpdata api.Structure --indent 4 > ~/AnglersEdge/config/fixtures/structures.json
+python manage.py dumpdata api.Fish --indent 4 > ~/AnglersEdge/config/fixtures/fishs.json
 deactivate

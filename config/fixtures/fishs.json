@@ -1,0 +1,82 @@
+[
+{
+    "model": "api.fish",
+    "pk": 1,
+    "fields": {
+        "species": "Mangrove Snapper",
+        "tutorial_video": "https://www.youtube.com/embed/EAo-pwZ6y1E?si=4uxuTNScl6zDpuJ0",
+        "bait": [
+            1,
+            2
+        ],
+        "food": [
+            2
+        ],
+        "structure": [
+            1,
+            2
+        ],
+        "trends": [
+            1,
+            2
+        ],
+        "techniques": [
+            1,
+            2,
+            3
+        ]
+    }
+},
+{
+    "model": "api.fish",
+    "pk": 2,
+    "fields": {
+        "species": "Redfish",
+        "tutorial_video": "https://www.youtube.com/embed/3qeGLmARlkg?si=6l5KdwROn9ou1j-3",
+        "bait": [
+            1,
+            2,
+            3,
+            4
+        ],
+        "food": [
+            2
+        ],
+        "structure": [
+            1,
+            2
+        ],
+        "trends": [
+            2
+        ],
+        "techniques": [
+            3
+        ]
+    }
+},
+{
+    "model": "api.fish",
+    "pk": 3,
+    "fields": {
+        "species": "Snook",
+        "tutorial_video": "https://www.youtube.com/embed/TuHuglK-hmA?si=jp5u4zkenlNOKQQn",
+        "bait": [
+            1,
+            3
+        ],
+        "food": [
+            2
+        ],
+        "structure": [
+            1,
+            2
+        ],
+        "trends": [
+            1
+        ],
+        "techniques": [
+            3
+        ]
+    }
+}
+]

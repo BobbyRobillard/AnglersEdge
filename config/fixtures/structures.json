@@ -1,0 +1,20 @@
+[
+{
+    "model": "api.structure",
+    "pk": 1,
+    "fields": {
+        "name": "Docks",
+        "properties": "Wood\r\nConcrete",
+        "notes": "Hold warmth during the day."
+    }
+},
+{
+    "model": "api.structure",
+    "pk": 2,
+    "fields": {
+        "name": "Mangroves",
+        "properties": "Shallow water plants.\r\nRoots are exposed during low tide.",
+        "notes": "Fish like to hide deep inside the roots for cover and ambush purposes."
+    }
+}
+]
