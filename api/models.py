@@ -41,21 +41,11 @@ class Structure(models.Model):
         return self.name
 
 
-class Location(models.Model):
-    name = models.CharField(max_length=100, unique=True)
-    properties = models.TextField()
-    notes = models.TextField()
-
-    def __str__(self):
-        return self.name
-
-
 class Fish(models.Model):
     species = models.CharField(max_length=100, unique=True)
     bait = models.ManyToManyField(Bait, related_name='fish')
     food = models.ManyToManyField(Food, related_name='fish')
     structure = models.ManyToManyField(Structure, related_name='fish')
-    locations = models.ManyToManyField(Location, related_name='fish')
     trends = models.ManyToManyField(Trend, related_name='fish')
     techniques = models.ManyToManyField(Technique, related_name='fish')
     tutorial_video = models.URLField(blank=True, null=True)

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Fish, Bait, Food, Structure, Location, Trend, Technique
+from .models import Fish, Bait, Food, Structure, Trend, Technique
 
 class NestedSerializer(serializers.ModelSerializer):
     properties = serializers.SerializerMethodField()
@@ -30,22 +30,16 @@ class StructureSerializer(NestedSerializer):
         model = Structure
 
 
-class LocationSerializer(NestedSerializer):
-    class Meta(NestedSerializer.Meta):
-        model = Location
-
-
 class FishSerializer(serializers.ModelSerializer):
     bait = BaitSerializer(many=True)
     food = FoodSerializer(many=True)
     structure = StructureSerializer(many=True)
-    locations = LocationSerializer(many=True)
     trends = serializers.SlugRelatedField(many=True, slug_field='description', queryset=Trend.objects.all())
     techniques = serializers.SlugRelatedField(many=True, slug_field='description', queryset=Technique.objects.all())
-
+    
     class Meta:
         model = Fish
         fields = [
-            'id', 'species', 'bait', 'food', 'structure', 'locations',
+            'id', 'species', 'bait', 'food', 'structure',
             'trends', 'techniques', 'tutorial_video'
         ]
