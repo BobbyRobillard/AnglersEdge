@@ -1,0 +1,21 @@
+/* Layout and Containers */
+.navbar {
+  height: 60px;
+}
+
+.main-container {
+  background-color: white;
+  padding: 50px;
+  border-radius: 6px;
+  margin-top: 25px;
+  box-shadow: 2px 3px 5px 0px rgba(201, 189, 201, 1);
+}
+
+/* Margins and Paddings */
+.margin-top {
+  margin-top: 25px;
+}
+
+.margin-bottom {
+  margin-bottom: 25px;
+}

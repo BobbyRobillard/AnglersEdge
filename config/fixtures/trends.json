@@ -1,0 +1,16 @@
+[
+{
+    "model": "api.trend",
+    "pk": 1,
+    "fields": {
+        "description": "Move offshore during Winter."
+    }
+},
+{
+    "model": "api.trend",
+    "pk": 2,
+    "fields": {
+        "description": "Move inshore during Summer to spawn."
+    }
+}
+]

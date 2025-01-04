@@ -1,0 +1,44 @@
+/* Species Selection */
+.species-img {
+  max-width: 100%;
+}
+
+.highlight {
+  border: 2px solid #0088ff;
+  border-radius: 5px;
+  background-color: rgba(0, 136, 255, 0.2);
+  transition:
+    background-color 0.3s ease,
+    border 0.3s ease;
+}
+
+/* Suggestions List */
+.suggestions-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ddd;
+  max-height: 200px;
+  overflow-y: auto;
+  position: absolute;
+  background-color: white;
+  width: 96%;
+  z-index: 1000;
+  box-sizing: border-box;
+  margin-left: 1%;
+}
+
+.suggestions-list li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestions-list li:hover {
+  background-color: #f0f0f0;
+}
+
+/* Table */
+.thead-dark th {
+  background-color: #0088ff !important;
+  color: white !important;
+}

@@ -1,0 +1,23 @@
+[
+{
+    "model": "api.technique",
+    "pk": 1,
+    "fields": {
+        "description": "Light of weight as possible."
+    }
+},
+{
+    "model": "api.technique",
+    "pk": 2,
+    "fields": {
+        "description": "Light of line as possible."
+    }
+},
+{
+    "model": "api.technique",
+    "pk": 3,
+    "fields": {
+        "description": "Free-line up-current of your target fishing area."
+    }
+}
+]

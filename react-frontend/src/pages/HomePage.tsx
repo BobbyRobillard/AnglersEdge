@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import SpecificLocationPage from './SpecificLocationPage';
 import SpeciesInfoPage from './SpeciesInfoPage';
 import { fetchFish } from '../services/ApiService'; // Fetch species data from API
+import { ViewPage } from '../constants';
+import SpeciesSelector from '../components/SpeciesSelector';
+import LocationInput from '../components/LocationInput';
 
 interface Fish {
   id: number;
@@ -12,13 +15,8 @@ const HomePage: React.FC = () => {
   const [speciesList, setSpeciesList] = useState<Fish[]>([]); // Dynamically fetched species
   const [selectedSpecies, setSelectedSpecies] = useState('');
   const [location, setLocation] = useState('');
-  const [query, setQuery] = useState('');
-  const [suggestions, setSuggestions] = useState<string[]>([]);
   const [locationSpecificMode, setLocationSpecificMode] = useState(false); // Toggle between modes
-  const [viewPage, setViewPage] = useState<'home' | 'location' | 'species'>(
-    'home'
-  );
-
+  const [viewPage, setViewPage] = useState<ViewPage>(ViewPage.Home);
   const [error, setError] = useState<string | null>(null); // Error handling
 
   useEffect(() => {
@@ -34,10 +32,6 @@ const HomePage: React.FC = () => {
 
     loadSpecies();
   }, []);
-
-  const handleSpeciesClick = (species: string) => {
-    setSelectedSpecies(species);
-  };
 
   const handleToggleMode = () => {
     setLocationSpecificMode((prev) => !prev); // Toggle mode
@@ -57,64 +51,28 @@ const HomePage: React.FC = () => {
     'Pensacola Bay',
   ];
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setQuery(value);
-
-    // Filter the pre-populated array
-    if (value) {
-      const filteredLocations = locationList.filter((loc) =>
-        loc.toLowerCase().includes(value.toLowerCase())
-      );
-      setSuggestions(filteredLocations);
-    } else {
-      setSuggestions([]);
-    }
-  };
-
-  const handleSuggestionClick = (suggestion: string) => {
-    setLocation(suggestion); // Set the selected location
-    setQuery(suggestion); // Update the input field
-    setSuggestions([]); // Clear the suggestions
-  };
-
-  const handleSearch = () => {
-    if (locationSpecificMode) {
-      if (selectedSpecies && location) {
-        setViewPage('location'); // Show SpecificLocationPage
-      } else {
-        alert('Please select a species and location!');
-      }
-    } else {
-      if (selectedSpecies) {
-        setViewPage('species'); // Show SpeciesInfoPage
-      } else {
-        alert('Please select a species!');
-      }
-    }
-  };
-
-  const goBack = () => {
-    setViewPage('home'); // Return to the home page
-  };
-
-  // Render SpecificLocationPage
-  if (viewPage === 'location') {
+  // Render Specific Location Page
+  if (viewPage === ViewPage.Location) {
     return (
       <SpecificLocationPage
         species={selectedSpecies}
         location={location}
-        goBack={goBack}
+        goBack={() => setViewPage(ViewPage.Home)}
       />
     );
   }
 
-  // Render SpeciesInfoPage
-  if (viewPage === 'species') {
-    return <SpeciesInfoPage species={selectedSpecies} goBack={goBack} />;
+  // Render Species Info Page
+  if (viewPage === ViewPage.Species) {
+    return (
+      <SpeciesInfoPage
+        species={selectedSpecies}
+        goBack={() => setViewPage(ViewPage.Home)}
+      />
+    );
   }
 
-  // Main homepage rendering
+  // Render Main Home Page
   if (error) return <p>{error}</p>;
 
   return (
@@ -129,48 +87,29 @@ const HomePage: React.FC = () => {
           Location Specific Mode
         </label>
       </div>
+      
       <h3>Select Target Species</h3>
-      <div className="row">
-        {speciesList.map((fish) => (
-          <div
-            key={fish.id}
-            className={`col-4 ${selectedSpecies === fish.species ? 'highlight' : ''}`}
-            onClick={() => handleSpeciesClick(fish.species)}
-          >
-            <img
-              className="species-img"
-              src={`/src/assets/${fish.species.toLowerCase().replace(' ', '_')}.png`}
-              alt={fish.species}
-            />
-            <h4>{fish.species}</h4>
-          </div>
-        ))}
-      </div>
 
-      {locationSpecificMode && (
-        <div className="row" style={{ marginTop: '20px' }}>
-          <div className="col" style={{ position: 'relative' }}>
-            <h3>Select Location</h3>
-            <input
-              type="text"
-              placeholder="Enter A Fishing Location..."
-              value={query}
-              onChange={handleInputChange}
-            />
-            <ul className="suggestions-list">
-              {suggestions.map((suggestion, index) => (
-                <li
-                  key={index}
-                  onClick={() => handleSuggestionClick(suggestion)}
-                >
-                  {suggestion}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      )}
-      <button className="btn btn-lg btn-primary" onClick={handleSearch}>
+      <SpeciesSelector
+        speciesList={speciesList}
+        selectedSpecies={selectedSpecies}
+        onSpeciesClick={(species) => setSelectedSpecies(species)}
+      />
+
+      {locationSpecificMode && (<LocationInput
+        locationList={locationList}
+        onLocationSelect={(location) => setLocation(location)}
+      />)}
+      
+      <button
+        className="btn btn-lg btn-primary margin-top"
+        onClick={() =>
+          setViewPage(
+            locationSpecificMode ? ViewPage.Location : ViewPage.Species
+          )
+        }
+        disabled={!selectedSpecies || (locationSpecificMode && !location)}
+      >
         Start Catching
       </button>
     </>

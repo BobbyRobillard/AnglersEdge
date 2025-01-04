@@ -1,0 +1,11 @@
+/* Grid System */
+.col-4 {
+  cursor: pointer;
+  padding: 10px;
+  text-align: center;
+}
+
+.col-4 img {
+  width: 100px;
+  height: auto;
+}
