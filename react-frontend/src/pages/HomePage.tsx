@@ -149,28 +149,29 @@ const HomePage: React.FC = () => {
 
       {locationSpecificMode && (
         <div className="row" style={{ marginTop: '20px' }}>
-          <div className="col" style={{ position: 'relative' }}>
+        <div className="col" style={{ position: 'relative' }}>
             <h3>Select Location</h3>
             <input
               type="text"
               placeholder="Enter A Fishing Location..."
               value={query}
               onChange={handleInputChange}
+              className="form-control text-center"
             />
-            <ul className="suggestions-list">
-              {suggestions.map((suggestion, index) => (
-                <li
-                  key={index}
-                  onClick={() => handleSuggestionClick(suggestion)}
-                >
-                  {suggestion}
-                </li>
-              ))}
-            </ul>
+            {/* Only render the suggestion list if there are suggestions */}
+            {suggestions.length > 0 && (
+              <ul className="suggestions-list">
+                {suggestions.map((suggestion, index) => (
+                  <li key={index} onClick={() => handleSuggestionClick(suggestion)}>
+                    {suggestion}
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         </div>
       )}
-      <button className="btn btn-lg btn-primary" onClick={handleSearch}>
+      <button className="btn btn-lg btn-primary" onClick={handleSearch} style={{ marginTop: '20px' }}>
         Start Catching
       </button>
     </>
