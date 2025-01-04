@@ -38,9 +38,9 @@ const SpeciesInfoPage = ({
   return (
     <>
       <BackButton goBack={goBack} />
+      {selectedSpecies && <h3>{selectedSpecies.species}</h3>}
       {selectedSpecies && (
         <SpeciesDetails
-          species={selectedSpecies.species}
           sections={[
             { title: 'Bait', items: selectedSpecies.bait.map((b) => b.name) },
             { title: 'Food', items: selectedSpecies.food.map((f) => f.name) },
@@ -53,7 +53,6 @@ const SpeciesInfoPage = ({
         <VideoSection videoUrl={selectedSpecies.tutorial_video} />
       )}
     </>
-
   );
 };
 

@@ -54,11 +54,15 @@ const SpecificLocationPage = ({
   return (
     <>
       <BackButton goBack={goBack} />
+      {selectedSpecies && <h3>{selectedSpecies.species}</h3>}
+      {location && <h5>Location: {location}</h5>}
       {selectedSpecies && (
         <SpeciesDetails
-          species={selectedSpecies.species}
           sections={[
-            { title: 'Food Sources', items: selectedSpecies.bait.map((b) => b.name) },
+            {
+              title: 'Food Sources',
+              items: selectedSpecies.bait.map((b) => b.name),
+            },
             { title: 'Current Trends', items: selectedSpecies.trends },
             { title: 'Techniques', items: selectedSpecies.techniques },
           ]}

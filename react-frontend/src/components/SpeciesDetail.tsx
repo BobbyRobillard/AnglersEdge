@@ -5,26 +5,29 @@ interface Section {
   items: string[];
 }
 
-const SpeciesDetails = ({
-  species,
-  sections,
-}: {
-  species: string;
-  sections: Section[];
-}) => {
+const SpeciesDetails = ({ sections }: { sections: Section[] }) => {
   return (
     <>
-      <h3>{species}</h3>
-      {sections.map((section, index) => (
-        <div key={index}>
-          <h4>{section.title}</h4>
-          <ul>
-            {section.items.map((item, idx) => (
-              <li key={idx}>{item}</li>
-            ))}
-          </ul>
-        </div>
-      ))}
+      <div className="row">
+        {sections.map((section, index) => (
+          <div className="col-6" key={index}>
+            <table className="table table-bordered">
+              <thead className="thead-dark">
+                <tr>
+                  <th>{section.title}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {section.items.map((item, idx) => (
+                  <tr>
+                    <td key={idx}>{item}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ))}
+      </div>
     </>
   );
 };
