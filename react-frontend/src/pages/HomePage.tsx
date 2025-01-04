@@ -11,18 +11,12 @@ interface Fish {
   species: string;
 }
 
-
-
 const HomePage: React.FC = () => {
   const [speciesList, setSpeciesList] = useState<Fish[]>([]); // Dynamically fetched species
   const [selectedSpecies, setSelectedSpecies] = useState('');
   const [location, setLocation] = useState('');
-  const [query, setQuery] = useState('');
-  const [suggestions, setSuggestions] = useState<string[]>([]);
   const [locationSpecificMode, setLocationSpecificMode] = useState(false); // Toggle between modes
   const [viewPage, setViewPage] = useState<ViewPage>(ViewPage.Home);
-
-  
   const [error, setError] = useState<string | null>(null); // Error handling
 
   useEffect(() => {
@@ -38,10 +32,6 @@ const HomePage: React.FC = () => {
 
     loadSpecies();
   }, []);
-
-  const handleSpeciesClick = (species: string) => {
-    setSelectedSpecies(species);
-  };
 
   const handleToggleMode = () => {
     setLocationSpecificMode((prev) => !prev); // Toggle mode
@@ -60,47 +50,6 @@ const HomePage: React.FC = () => {
     'Destin Harbor',
     'Pensacola Bay',
   ];
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setQuery(value);
-
-    // Filter the pre-populated array
-    if (value) {
-      const filteredLocations = locationList.filter((loc) =>
-        loc.toLowerCase().includes(value.toLowerCase())
-      );
-      setSuggestions(filteredLocations);
-    } else {
-      setSuggestions([]);
-    }
-  };
-
-  const handleSuggestionClick = (suggestion: string) => {
-    setLocation(suggestion); // Set the selected location
-    setQuery(suggestion); // Update the input field
-    setSuggestions([]); // Clear the suggestions
-  };
-
-  const handleSearch = () => {
-    if (locationSpecificMode) {
-      if (selectedSpecies && location) {
-        setViewPage(ViewPage.Location); // Show SpecificLocationPage
-      } else {
-        alert('Please select a species and location!');
-      }
-    } else {
-      if (selectedSpecies) {
-        setViewPage(ViewPage.Species); // Show SpeciesInfoPage
-      } else {
-        alert('Please select a species!');
-      }
-    }
-  };
-
-  const goBack = () => {
-    setViewPage(ViewPage.Home); // Return to the home page
-  };
 
   // Render Specific Location Page
   if (viewPage === ViewPage.Location) {
