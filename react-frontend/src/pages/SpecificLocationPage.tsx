@@ -59,7 +59,10 @@ const SpecificLocationPage = ({
       {selectedSpecies && (
         <SpeciesDetails
           sections={[
-            { title: 'Food Sources', items: selectedSpecies.bait.map((b) => b.name) },
+            {
+              title: 'Food Sources',
+              items: selectedSpecies.bait.map((b) => b.name),
+            },
             { title: 'Current Trends', items: selectedSpecies.trends },
             { title: 'Techniques', items: selectedSpecies.techniques },
           ]}

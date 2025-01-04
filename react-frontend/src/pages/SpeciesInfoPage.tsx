@@ -53,7 +53,6 @@ const SpeciesInfoPage = ({
         <VideoSection videoUrl={selectedSpecies.tutorial_video} />
       )}
     </>
-
   );
 };
 

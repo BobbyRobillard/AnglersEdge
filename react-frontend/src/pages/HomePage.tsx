@@ -149,7 +149,7 @@ const HomePage: React.FC = () => {
 
       {locationSpecificMode && (
         <div className="row" style={{ marginTop: '20px' }}>
-        <div className="col" style={{ position: 'relative' }}>
+          <div className="col" style={{ position: 'relative' }}>
             <h3>Select Location</h3>
             <input
               type="text"
@@ -162,7 +162,10 @@ const HomePage: React.FC = () => {
             {suggestions.length > 0 && (
               <ul className="suggestions-list">
                 {suggestions.map((suggestion, index) => (
-                  <li key={index} onClick={() => handleSuggestionClick(suggestion)}>
+                  <li
+                    key={index}
+                    onClick={() => handleSuggestionClick(suggestion)}
+                  >
                     {suggestion}
                   </li>
                 ))}
@@ -171,7 +174,11 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       )}
-      <button className="btn btn-lg btn-primary" onClick={handleSearch} style={{ marginTop: '20px' }}>
+      <button
+        className="btn btn-lg btn-primary"
+        onClick={handleSearch}
+        style={{ marginTop: '20px' }}
+      >
         Start Catching
       </button>
     </>
