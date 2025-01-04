@@ -8,4 +8,3 @@ admin.site.register(Bait)
 admin.site.register(Structure)
 admin.site.register(Technique)
 admin.site.register(Trend)
-
