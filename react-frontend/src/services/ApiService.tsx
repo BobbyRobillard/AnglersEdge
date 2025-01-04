@@ -1,31 +1,34 @@
 import axios from 'axios';
 
-const apiClient = axios.create({
+export interface Fish {
+  id: number;
+  species: string;
+  bait: Nested[];
+  food: Nested[];
+  structure: Nested[];
+  locations: Nested[];
+  trends: string[];
+  techniques: string[];
+  tutorial_video?: string;
+}
+
+export interface Nested {
+  id: number;
+  name: string;
+  properties: string[];
+  notes: string[];
+}
+
+const ApiService = axios.create({
   baseURL: 'http://127.0.0.1:8000/api/',
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
-// Define types for data returned by the API
-interface Fish {
-  id: number;
-  species: string;
-}
-
-interface Location {
-  id: number;
-  name: string;
-}
-
 export const fetchFish = async (): Promise<Fish[]> => {
-  const response = await apiClient.get<Fish[]>('/fish/');
+  const response = await ApiService.get('/fish/');
   return response.data;
 };
 
-export const fetchLocations = async (): Promise<Location[]> => {
-  const response = await apiClient.get<Location[]>('/location/');
-  return response.data;
-};
-
-export default apiClient;
+export default ApiService;

@@ -1,32 +1,51 @@
 from rest_framework import serializers
-from .models import Fish, Food, Bait, Structure, Location
+from .models import Fish, Bait, Food, Structure, Location, Trend, Technique
 
-class FoodSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Food
-        fields = '__all__'
+class NestedSerializer(serializers.ModelSerializer):
+    properties = serializers.SerializerMethodField()
+    notes = serializers.SerializerMethodField()
 
-class BaitSerializer(serializers.ModelSerializer):
     class Meta:
+        fields = ['id', 'name', 'properties', 'notes']
+
+    def get_properties(self, obj):
+        return obj.properties.split('\n') if obj.properties else []
+
+    def get_notes(self, obj):
+        return obj.notes.split('\n') if obj.notes else []
+
+
+class BaitSerializer(NestedSerializer):
+    class Meta(NestedSerializer.Meta):
         model = Bait
-        fields = '__all__'
 
-class StructureSerializer(serializers.ModelSerializer):
-    class Meta:
+
+class FoodSerializer(NestedSerializer):
+    class Meta(NestedSerializer.Meta):
+        model = Food
+
+
+class StructureSerializer(NestedSerializer):
+    class Meta(NestedSerializer.Meta):
         model = Structure
-        fields = '__all__'
 
-class LocationSerializer(serializers.ModelSerializer):
-    class Meta:
+
+class LocationSerializer(NestedSerializer):
+    class Meta(NestedSerializer.Meta):
         model = Location
-        fields = '__all__'
+
 
 class FishSerializer(serializers.ModelSerializer):
-    bait = BaitSerializer(many=True, read_only=True)
-    food = FoodSerializer(many=True, read_only=True)
-    structure = StructureSerializer(many=True, read_only=True)
-    locations = LocationSerializer(many=True, read_only=True)
+    bait = BaitSerializer(many=True)
+    food = FoodSerializer(many=True)
+    structure = StructureSerializer(many=True)
+    locations = LocationSerializer(many=True)
+    trends = serializers.SlugRelatedField(many=True, slug_field='description', queryset=Trend.objects.all())
+    techniques = serializers.SlugRelatedField(many=True, slug_field='description', queryset=Technique.objects.all())
 
     class Meta:
         model = Fish
-        fields = '__all__'
+        fields = [
+            'id', 'species', 'bait', 'food', 'structure', 'locations',
+            'trends', 'techniques', 'tutorial_video'
+        ]

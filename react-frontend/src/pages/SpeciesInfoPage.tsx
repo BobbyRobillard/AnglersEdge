@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import SpeciesDetails from '../components/SpeciesDetail';
 import VideoSection from '../components/VideoSection';
 import BackButton from '../components/BackButton';
+import { fetchFish, Fish } from '../services/ApiService';
 
 const SpeciesInfoPage = ({
   species,
@@ -10,30 +11,47 @@ const SpeciesInfoPage = ({
   species: string;
   goBack: () => void;
 }) => {
-  const sections = [
-    {
-      title: 'Food Sources',
-      items: ['Food Source 1', 'Food Source 2', 'Food Source 3'],
-    },
-    {
-      title: 'Seasonal Trends',
-      items: ['Seasonal Trend 1', 'Seasonal Trend 2', 'Seasonal Trend 3'],
-    },
-    {
-      title: 'Structure',
-      items: ['Structure 1', 'Structure 2', 'Structure 3'],
-    },
-    {
-      title: 'Bait & Techniques',
-      items: ['Bait 1', 'Bait 2', 'Technique 1', 'Technique 2'],
-    },
-  ];
+  const [selectedSpecies, setSelectedSpecies] = useState<Fish | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const loadSpeciesData = async () => {
+      try {
+        const data = await fetchFish();
+        const foundSpecies = data.find((fish) => fish.species === species);
+        if (foundSpecies) {
+          setSelectedSpecies(foundSpecies);
+        } else {
+          setError('Species not found.');
+        }
+      } catch (err) {
+        console.error(err);
+        setError('Failed to load species data.');
+      }
+    };
+
+    loadSpeciesData();
+  }, [species]);
+
+  if (error) return <p>{error}</p>;
 
   return (
     <>
       <BackButton goBack={goBack} />
-      <SpeciesDetails species={species} sections={sections} />
-      <VideoSection videoUrl="https://www.youtube.com/embed/EAo-pwZ6y1E?si=Rvi85MCwJ8ev-mvj" />
+      {selectedSpecies && (
+        <SpeciesDetails
+          species={selectedSpecies.species}
+          sections={[
+            { title: 'Bait', items: selectedSpecies.bait.map((b) => b.name) },
+            { title: 'Food', items: selectedSpecies.food.map((f) => f.name) },
+            { title: 'Trends', items: selectedSpecies.trends },
+            { title: 'Techniques', items: selectedSpecies.techniques },
+          ]}
+        />
+      )}
+      {selectedSpecies?.tutorial_video && (
+        <VideoSection videoUrl={selectedSpecies.tutorial_video} />
+      )}
     </>
   );
 };
