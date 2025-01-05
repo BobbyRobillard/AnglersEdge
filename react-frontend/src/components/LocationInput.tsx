@@ -5,7 +5,10 @@ interface LocationInputProps {
   onLocationSelect: (location: string) => void;
 }
 
-const LocationInput: React.FC<LocationInputProps> = ({ locationList, onLocationSelect }) => {
+const LocationInput: React.FC<LocationInputProps> = ({
+  locationList,
+  onLocationSelect,
+}) => {
   const [query, setQuery] = useState('');
   const [suggestions, setSuggestions] = useState<string[]>([]);
 

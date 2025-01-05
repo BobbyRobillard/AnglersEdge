@@ -8,25 +8,26 @@ class FishModelTest(TestCase):
         self.bait = Bait.objects.create(
             name="Fiddler Crab",
             properties="Small, Crustacean",
-            notes="Good for inshore fishing."
+            notes="Good for inshore fishing.",
         )
         self.food = Food.objects.create(
             name="Pilchard",
             properties="Small, oily fish",
-            notes="Often found in schools near mangroves."
+            notes="Often found in schools near mangroves.",
         )
         self.structure = Structure.objects.create(
             name="Mangrove",
             properties="Wood, varying water depths",
-            notes="Home to many juvenile fish."
+            notes="Home to many juvenile fish.",
         )
         self.trend = Trend.objects.create(description="Moves inshore during summer.")
-        self.technique = Technique.objects.create(description="Use live bait near structure.")
+        self.technique = Technique.objects.create(
+            description="Use live bait near structure."
+        )
 
         # Create the Fish object
         self.fish = Fish.objects.create(
-            species="Snook",
-            tutorial_video="https://example.com/snook-tutorial"
+            species="Snook", tutorial_video="https://example.com/snook-tutorial"
         )
 
         # Add ManyToMany relationships

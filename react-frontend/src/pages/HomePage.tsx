@@ -83,7 +83,7 @@ const HomePage: React.FC = () => {
           Location Specific Mode
         </label>
       </div>
-      
+
       <h3>Select Target Species</h3>
 
       <SpeciesSelector
@@ -92,11 +92,13 @@ const HomePage: React.FC = () => {
         onSpeciesClick={(species) => setSelectedSpecies(species)}
       />
 
-      {locationSpecificMode && (<LocationInput
-        locationList={locationList}
-        onLocationSelect={(location) => setLocation(location)}
-      />)}
-      
+      {locationSpecificMode && (
+        <LocationInput
+          locationList={locationList}
+          onLocationSelect={(location) => setLocation(location)}
+        />
+      )}
+
       <button
         className="btn btn-lg btn-primary margin-top"
         onClick={() =>
