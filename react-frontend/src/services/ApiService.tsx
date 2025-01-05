@@ -20,4 +20,3 @@ export const fetchFish = async (): Promise<Fish[]> => {
     throw new Error('Failed to fetch fish data. Please try again later.');
   }
 };
-

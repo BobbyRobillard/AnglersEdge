@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { ViewPage } from '../constants';
 import SpecificLocationPage from './SpecificLocationPage';
 import SpeciesInfoPage from './SpeciesInfoPage';
 import { fetchFish } from '../services/ApiService'; // Fetch species data from API
-import { ViewPage } from '../constants';
+import { Fish } from '../services/Types';
 import SpeciesSelector from '../components/SpeciesSelector';
 import LocationInput from '../components/LocationInput';
-
-interface Fish {
-  id: number;
-  species: string;
-}
 
 const HomePage: React.FC = () => {
   const [speciesList, setSpeciesList] = useState<Fish[]>([]); // Dynamically fetched species
@@ -87,7 +83,7 @@ const HomePage: React.FC = () => {
           Location Specific Mode
         </label>
       </div>
-      
+
       <h3>Select Target Species</h3>
 
       <SpeciesSelector
@@ -96,11 +92,13 @@ const HomePage: React.FC = () => {
         onSpeciesClick={(species) => setSelectedSpecies(species)}
       />
 
-      {locationSpecificMode && (<LocationInput
-        locationList={locationList}
-        onLocationSelect={(location) => setLocation(location)}
-      />)}
-      
+      {locationSpecificMode && (
+        <LocationInput
+          locationList={locationList}
+          onLocationSelect={(location) => setLocation(location)}
+        />
+      )}
+
       <button
         className="btn btn-lg btn-primary margin-top"
         onClick={() =>

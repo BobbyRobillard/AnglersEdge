@@ -32,7 +32,9 @@ const SpecificLocationPage = ({
               { title: 'Techniques', items: data.techniques },
             ]}
           />
-          {data.tutorial_video && <VideoSection videoUrl={data.tutorial_video} />}
+          {data.tutorial_video && (
+            <VideoSection videoUrl={data.tutorial_video} />
+          )}
         </>
       )}
     </>
