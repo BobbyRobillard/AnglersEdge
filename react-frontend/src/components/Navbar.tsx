@@ -7,9 +7,9 @@ const Navbar: React.FC = () => {
         {/* Logo */}
         <a className="navbar-brand" href="/">
           <img
-            src="/src/assets/Black-Transparent.png" // Replace with the actual path to your logo
+            src="/src/assets/White-Transparent.png" // Replace with the actual path to your logo
             alt="Angler's Edge Logo"
-            height="100" // Adjust the height as needed
+            height="200" // Adjust the height as needed
           />
         </a>
         {/* Tabs */}
