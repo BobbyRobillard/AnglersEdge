@@ -1,12 +1,14 @@
+// SpeciesSelector.tsx
+// This component allows users to select a fish species from a list.
+
 import React from 'react';
 
 interface SpeciesSelectorProps {
-  speciesList: { id: number; species: string }[];
-  selectedSpecies: string;
-  onSpeciesClick: (species: string) => void;
+  speciesList: { id: number; species: string }[]; // List of available species.
+  selectedSpecies: string; // Currently selected species.
+  onSpeciesClick: (species: string) => void; // Callback for when a species is clicked.
 }
 
-// Isolates species selection logic for better readability and reusability.
 const SpeciesSelector: React.FC<SpeciesSelectorProps> = ({
   speciesList,
   selectedSpecies,

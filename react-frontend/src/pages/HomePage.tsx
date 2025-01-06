@@ -1,3 +1,7 @@
+// HomePage.tsx
+// This component serves as the main landing page of the application.
+// It allows users to toggle between "Location Specific Mode" and "General Species Information Mode."
+
 import React, { useEffect, useState } from 'react';
 import { ViewPage } from '../constants';
 import SpecificLocationPage from './SpecificLocationPage';

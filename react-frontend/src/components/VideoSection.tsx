@@ -1,3 +1,6 @@
+// VideoSection.tsx
+// This component displays a video tutorial embedded within the page.
+
 import React from 'react';
 
 const VideoSection = ({ videoUrl }: { videoUrl: string }) => {
