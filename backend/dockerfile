@@ -1,0 +1,23 @@
+# Backend Dockerfile
+FROM python:3.10-slim
+
+# Set working directory
+WORKDIR /backend
+
+# Install Python dependencies inside the virtual environment
+COPY requirements.txt .
+RUN pip install --upgrade pip
+RUN pip install -r ./requirements.txt
+
+# Copy project files to the container
+COPY . .
+
+# Expose port 8000 for Django server
+EXPOSE 8000
+
+RUN python manage.py makemigrations
+RUN python manage.py migrate
+RUN python manage.py loaddata ./config/fixtures/*.json
+
+# Command to run the development server
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
