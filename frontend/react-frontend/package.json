@@ -1,8 +1,8 @@
 {
-  "name": "your-project-name",
+  "name": "react-frontend",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview"
   },
