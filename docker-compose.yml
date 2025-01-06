@@ -1,0 +1,24 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: dockerfile
+    volumes:
+      - ./backend:/app # Mount the backend directory
+      - ./backend/db.sqlite3:/app/db.sqlite3 # Persist the SQLite database file
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./backend/.env
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: dockerfile
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
