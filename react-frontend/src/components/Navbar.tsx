@@ -1,3 +1,7 @@
+// Navbar.tsx
+// This component represents the navigation bar of the application.
+// It includes links to various sections of the site.
+
 import React from 'react';
 
 const Navbar: React.FC = () => {

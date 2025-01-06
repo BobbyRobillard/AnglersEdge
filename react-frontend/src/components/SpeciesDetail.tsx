@@ -1,8 +1,11 @@
+// SpeciesDetail.tsx
+// This component renders detailed information about a species in a tabular format.
+
 import React from 'react';
 
 interface Section {
-  title: string;
-  items: string[];
+  title: string; // Title of the section (e.g., "Baits", "Structures").
+  items: string[]; // List of items under this section.
 }
 
 const SpeciesDetails = ({ sections }: { sections: Section[] }) => {
