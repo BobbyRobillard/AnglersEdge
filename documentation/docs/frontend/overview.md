@@ -12,10 +12,12 @@ The frontend for Anglers Edge is built with **Vite** and **React**. It provides 
 ---
 
 ## Key Technologies
-- **React**: JavaScript library for building user interfaces.
-- **Vite**: Fast development server and build tool.
-- **Axios**: HTTP client for API integration.
-- **Bootstrap**: For styling.
+- **npm**: JavaScript package manager (^10.9.0)
+- **NodeJS**: JavaScript runtime (dev server) (^20.0.0)
+- **React**: JavaScript library for building user interfaces (^18.2.0)
+- **Vite**: Fast development server and build tool (^6.0.0)
+- **Axios**: HTTP client for API integration (^1.7.0)
+- **Bootstrap**: For styling (^5.1.0)
 
 ---
 

@@ -9,13 +9,6 @@
 
 This applications allows users to easily find information about a species of fish, as well as how to catch that species in a specific location of their choosing.
 
-
-## Clone and Run the Application
-1. Clone the GitHub Repo: `gh repo clone BobbyRobillard/AnglersEdge`
-2. Run Docker Compose: `docker-compose up --build`
-3. Access App in Browser: `localhost:5173`
-
-
 ---
 
 ## Development Stack

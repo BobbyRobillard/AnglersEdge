@@ -12,11 +12,12 @@ The backend for the Anglers Edge project is built using **Django** and **Django 
 ---
 
 ## Key Technologies
-- Django 5.1
-- Django Rest Framework
-- SQLite (default database)
-- Docker
-- GitHub CLI
+- Python (^3.1.0)
+- Django (5.1.0)
+- Django Rest Framework (3.15.2)
+- SQLite (default database) (3.35.4)
+- Docker (Latest Downloadable Release)
+- GitHub CLI (2.30.0)
 
 ---
 
