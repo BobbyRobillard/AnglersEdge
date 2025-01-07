@@ -3,6 +3,7 @@ nav:
   - Home:
     - Overview: index.md
     - Setup: setup.md
+    - FAQ: faq.md
   - Backend:
     - Overview: backend/overview.md
     - Installation: backend/installation.md
