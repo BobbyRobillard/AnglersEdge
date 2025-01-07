@@ -5,8 +5,16 @@ nav:
   - Backend:
     - Overview: backend/overview.md
     - Installation: backend/installation.md
+    - API Endpoints: backend/endpoints.md
   - Frontend:
+    - Overview: frontend/overview.md
     - Installation: frontend/installation.md
   - Testing:
-    - Installation: testing/testing.md
+    - Backend Tests: testing/backend_tests.md
+    - Frontend Tests: testing/frontend_tests.md
+  - Deployment (Production):
+    - Overview: deployment/overview.md
+    - Server Setup: deployment/server_setup.md
+    - Backend Deployment: deployment/backend.md
+    - Frontend Deployment: deployment/frontend.md
 theme: readthedocs

@@ -1,17 +1,18 @@
-# AE - Frontend Documentation
+# Frontend Documentation - Installation & setup
 
-Created By: Robert Robillard
+#### <span style="color:red">Important Note</span>
+This DOES NOT setup the backend, you MUST do this seperate, unless you're using the docker-compose function.
 
-## Commands
+## Setup Instructions
+1. <b>Enter Working Directory</b>
+    * Change to Directory: `cd ./frontend/react-frontend/`
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+2. <b>Install dependencies</b>
+    * Install All Reqs: `npm install`
 
-## Project layout
+3. <b>Start the development server</b>
+    * Start Server: `npm run dev`
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+4. <b>Open the App</b>
+    * URL: [http://localhost:5173](http://localhost:5173)
+
