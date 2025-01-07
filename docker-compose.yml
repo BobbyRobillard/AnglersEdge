@@ -16,3 +16,10 @@ services:
       - "5173:5173"
     depends_on:
       - backend
+
+    documentation:
+      build:
+        context: ./documentation
+        dockerfile: dockerfile
+      ports:
+        - "8001:8001"
