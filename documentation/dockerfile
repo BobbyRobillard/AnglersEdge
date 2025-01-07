@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 8001
 
 # Command to run the development server
-CMD ["mkdocs", "serve", "--dev-addr=localhost:8001"]
+CMD ["mkdocs", "serve", "--dev-addr=0.0.0.0:8001"]
