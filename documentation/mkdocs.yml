@@ -1,6 +1,7 @@
 site_name: Angler's Edge Documentation
 nav:
-  - Home: index.md
+  - Home:
+    - Overview: index.md
   - Backend:
     - Overview: backend/overview.md
     - Installation: backend/installation.md
