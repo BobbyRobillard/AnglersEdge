@@ -150,7 +150,7 @@ CSRF_TRUSTED_ORIGINS = ["https://anglingpros.com"]
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Enable HTTPS redirect in Django
-SECURE_SSL_REDIRECT = False
+SECURE_SSL_REDIRECT = True
 
 # Ensure cookies are only sent over HTTPS
 CSRF_COOKIE_SECURE = True
