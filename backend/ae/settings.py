@@ -144,13 +144,13 @@ REST_FRAMEWORK = {
 CORS_ALLOWED_ORIGINS = ALLOWED_HOSTS
 
 
-CSRF_TRUSTED_ORIGINS = ["https://anglingpros.com"]
+CSRF_TRUSTED_ORIGINS = ["anglingpros.com"]
 
 # Tell Django that requests forwarded from Nginx are HTTPS
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Enable HTTPS redirect in Django
-SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = False
 
 # Ensure cookies are only sent over HTTPS
 CSRF_COOKIE_SECURE = True
