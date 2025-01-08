@@ -4,7 +4,7 @@
 import axios from 'axios';
 
 const ApiClient = axios.create({
-  baseURL: "https://anglingpros.com/api", // Base URL for API requests.
+  baseURL: import.meta.env.VITE_API_BASE_URL || "https://anglingpros.com/api", // Base URL for API requests.
   headers: {
     'Content-Type': 'application/json',
   },
