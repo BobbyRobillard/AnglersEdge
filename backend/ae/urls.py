@@ -1,8 +1,14 @@
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
+from django.views.generic.base import TemplateView
+
+from api.views import HomePageView
 
 urlpatterns = [
-    path("admin/", admin.site.urls),  # Admin panel
-    path("api/", include("api.urls")),  # Include app-level URLs for the API
-    path("api-auth/", include("rest_framework.urls")),  # DRF login/logout
+    # Other routes (e.g., API, admin, React)
+    path('admin/', admin.site.urls),
+    path('api/', include('api.urls')),
+
+    # Catch-all route for React
+    re_path(r'^.*$', TemplateView.as_view(template_name='index.html'), name='react'),
 ]

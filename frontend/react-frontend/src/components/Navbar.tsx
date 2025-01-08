@@ -4,6 +4,9 @@
 
 import React from 'react';
 
+// Import images as ESModules
+import whiteLogo from '../assets/White-Transparent.png';
+
 const Navbar: React.FC = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -11,7 +14,7 @@ const Navbar: React.FC = () => {
         {/* Logo */}
         <a className="navbar-brand" href="/">
           <img
-            src="/src/assets/White-Transparent.png" // Replace with the actual path to your logo
+            src={whiteLogo} 
             alt="Angler's Edge Logo"
             height="200" // Adjust the height as needed
           />
