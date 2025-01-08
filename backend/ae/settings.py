@@ -30,7 +30,9 @@ def get_secret(setting, secrets=secrets):
 
 SECRET_KEY = get_secret('SECRET_KEY')
 DEBUG = True
+
 ALLOWED_HOSTS = get_secret('ALLOWED_HOSTS')
+CORS_ALLOWED_ORIGINS = get_secret('CORS_ALLOWED_ORIGINS')
 
 # Application definition
 
@@ -141,10 +143,7 @@ REST_FRAMEWORK = {
     ],
 }
 
-CORS_ALLOWED_ORIGINS = ALLOWED_HOSTS
-
-
-CSRF_TRUSTED_ORIGINS = ["anglingpros.com"]
+CSRF_TRUSTED_ORIGINS = ["https://anglingpros.com"]
 
 # Tell Django that requests forwarded from Nginx are HTTPS
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
