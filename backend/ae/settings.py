@@ -142,3 +142,5 @@ REST_FRAMEWORK = {
 }
 
 CORS_ALLOWED_ORIGINS = ALLOWED_HOSTS
+
+CSRF_TRUSTED_ORIGINS = ["http://anglingpros.com", "https://*.127.0.0.1"]
