@@ -35,6 +35,8 @@ ALLOWED_HOSTS = get_secret('ALLOWED_HOSTS')
 # Application definition
 
 INSTALLED_APPS = [
+    "ae",
+    "api",
     "corsheaders",
     "rest_framework",
     "api.apps.ApiConfig",
