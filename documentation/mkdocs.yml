@@ -1,0 +1,20 @@
+site_name: Angler's Edge Documentation
+nav:
+  - Home:
+    - Overview: index.md
+    - Setup: setup.md
+    - FAQ: faq.md
+  - Backend:
+    - Overview: backend/overview.md
+    - Installation: backend/installation.md
+    - API Endpoints: backend/endpoints.md
+  - Frontend:
+    - Overview: frontend/overview.md
+    - Installation: frontend/installation.md
+  - Testing:
+    - Backend Tests: testing/backend_tests.md
+    - Frontend Tests: testing/frontend_tests.md
+  - Deployment (Production):
+    - Overview: deployment/overview.md
+    - Server Setup: deployment/server_setup.md
+theme: readthedocs
