@@ -14,9 +14,10 @@ from pathlib import Path
 import os
 import json
 
+# Define the base directory
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Access .env variables from the "secrets.json" file
+# Access secrets from the "secrets.json" file
 with open(os.path.join(BASE_DIR, "secrets.json")) as f:
     secrets = json.load(f)
 
@@ -25,17 +26,19 @@ def get_secret(setting, secrets=secrets):
     try:
         return secrets[setting]
     except KeyError:
-        error_msg = "Set the {0} environment variable".format(setting)
+        error_msg = f"Set the {setting} environment variable"
         raise Exception(error_msg)
 
+# Core settings
 SECRET_KEY = get_secret('SECRET_KEY')
-DEBUG = True
+DEBUG = False  # Ensure this is False in production
 
-ALLOWED_HOSTS = get_secret('ALLOWED_HOSTS')
-CORS_ALLOWED_ORIGINS = get_secret('CORS_ALLOWED_ORIGINS')
+# Hosts and CORS
+ALLOWED_HOSTS = get_secret('ALLOWED_HOSTS')  # Should include 'anglingpros.com' and 'www.anglingpros.com'
+CORS_ALLOWED_ORIGINS = get_secret('CORS_ALLOWED_ORIGINS')  # Same as ALLOWED_HOSTS for frontend/backend communication
+CSRF_TRUSTED_ORIGINS = ["https://anglingpros.com", "https://www.anglingpros.com"]
 
-# Application definition
-
+# Installed apps
 INSTALLED_APPS = [
     "corsheaders",
     "rest_framework",
@@ -48,6 +51,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
 ]
 
+# Middleware
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
@@ -59,6 +63,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
+# Core URLs and WSGI configuration
 ROOT_URLCONF = "ae.urls"
 
 TEMPLATES = [
@@ -79,10 +84,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "ae.wsgi.application"
 
-
-# Database
-# https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
+# Database configuration
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
@@ -90,10 +92,7 @@ DATABASES = {
     }
 }
 
-
 # Password validation
-# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
@@ -109,30 +108,20 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
-# https://docs.djangoproject.com/en/5.1/topics/i18n/
-
 LANGUAGE_CODE = "en-us"
-
 TIME_ZONE = "UTC"
-
 USE_I18N = True
-
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.1/howto/static-files/
-
 STATIC_URL = "static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
 
 # Default primary key field type
-# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+# Django REST Framework configuration
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
         "rest_framework.authentication.SessionAuthentication",
@@ -143,9 +132,9 @@ REST_FRAMEWORK = {
     ],
 }
 
-SECURE_PROXY_SSL_HEADER = None  # Disable HTTPS enforcement
-SECURE_SSL_REDIRECT = False     # No HTTPS redirection in Django
-CSRF_TRUSTED_ORIGINS = []       # Temporarily disable CSRF trusted origins
-CSRF_COOKIE_SECURE = False      # Use insecure cookies for now
-SESSION_COOKIE_SECURE = False
+# Security settings for production
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+SECURE_SSL_REDIRECT = True  # Redirect HTTP to HTTPS
+CSRF_COOKIE_SECURE = True  # Ensure CSRF cookies are sent over HTTPS
+SESSION_COOKIE_SECURE = True  # Ensure session cookies are sent over HTTPS
 
