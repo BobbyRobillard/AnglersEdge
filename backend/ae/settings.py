@@ -35,8 +35,6 @@ ALLOWED_HOSTS = get_secret('ALLOWED_HOSTS')
 # Application definition
 
 INSTALLED_APPS = [
-    "ae",
-    "api",
     "corsheaders",
     "rest_framework",
     "api.apps.ApiConfig",
@@ -146,4 +144,5 @@ REST_FRAMEWORK = {
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",  # React dev server
     "http://localhost:8000", # Django dev server
+    "http://anglingpros.com"
 ]
