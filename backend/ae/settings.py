@@ -143,4 +143,8 @@ REST_FRAMEWORK = {
 
 CORS_ALLOWED_ORIGINS = ALLOWED_HOSTS
 
-CSRF_TRUSTED_ORIGINS = ["http://anglingpros.com", "https://*.127.0.0.1"]
+CSRF_TRUSTED_ORIGINS = ["https://anglingpros.com"]
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')  # Inform Django of proxy handling
+CSRF_COOKIE_SECURE = True  # Ensure CSRF cookies are only sent over HTTPS
+SESSION_COOKIE_SECURE = True  # Ensure session cookies are only sent over HTTPS
