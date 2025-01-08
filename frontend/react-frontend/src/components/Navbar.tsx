@@ -29,13 +29,8 @@ const Navbar: React.FC = () => {
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/locations">
-              Locations
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="/about">
-              About
+            <a className="nav-link" target="_blank" rel="noopener noreferrer" href="http://localhost:8001">
+              Documentation
             </a>
           </li>
         </ul>

@@ -9,14 +9,21 @@
     "preview": "vite preview",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["vite", "react", "fishing", "bootstrap", "axios"],
+  "keywords": [
+    "vite",
+    "react",
+    "fishing",
+    "bootstrap",
+    "axios"
+  ],
   "author": "Your Name",
   "license": "MIT",
   "dependencies": {
     "axios": "^1.7.0",
     "bootstrap": "^5.3.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^7.1.1"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.0.0",

@@ -1,4 +1,4 @@
 #!/bin/bash
 
-source ~/AnglersEdge/venv/bin/activate
-python manage.py loaddata ~/AnglersEdge/config/fixtures/*.json
+source ~/AnglersEdge/backend/venv/bin/activate
+python manage.py loaddata ~/AnglersEdge/backend/config/fixtures/*.json

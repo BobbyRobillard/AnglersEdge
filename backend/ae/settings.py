@@ -12,16 +12,25 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+import json
 
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Access .env variables from the "secrets.json" file
+with open(os.path.join(BASE_DIR, "secrets.json")) as f:
+    secrets = json.load(f)
 
-SECRET_KEY = os.getenv("SECRET_KEY", "default-secret-key")
-DEBUG = os.getenv("DEBUG", "False") == "True"
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split(",")
+def get_secret(setting, secrets=secrets):
+    """Get the secret variable or return explicit exception."""
+    try:
+        return secrets[setting]
+    except KeyError:
+        error_msg = "Set the {0} environment variable".format(setting)
+        raise Exception(error_msg)
 
+SECRET_KEY = get_secret('SECRET_KEY')
+DEBUG = True
+ALLOWED_HOSTS = get_secret('ALLOWED_HOSTS')
 
 # Application definition
 

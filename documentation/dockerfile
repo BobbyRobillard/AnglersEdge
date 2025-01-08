@@ -1,0 +1,20 @@
+# Backend Dockerfile
+FROM python:3.10-slim
+
+# Set working directory
+WORKDIR /documentation
+
+# Install Python dependencies
+COPY requirements.txt .
+RUN pip install --upgrade pip
+RUN pip install -r ./requirements.txt
+
+# Copy project files to the container
+COPY . .
+
+# Expose port 8001 for Documentaion server
+# Django runs on port 8000 by default, so we will use port 8001 for the documentation server
+EXPOSE 8001
+
+# Command to run the development server
+CMD ["mkdocs", "serve", "--dev-addr=0.0.0.0:8001"]
