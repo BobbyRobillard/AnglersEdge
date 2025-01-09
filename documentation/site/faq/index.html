@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>FAQ - Angler's Edge Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "FAQ";
+        var mkdocs_page_input_path = "faq.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Angler's Edge Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Home</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="..">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../setup/">Setup</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">FAQ</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-why-doesnt-the-app-implement-location-based-trends-or-species-specific-techniques">1. Why doesn’t the app implement location-based trends or species-specific techniques?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-why-is-there-no-front-end-testing">2. Why is there no front-end testing?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-why-dont-the-dockerfiles-support-hot-reloading-in-development">3. Why don’t the Dockerfiles support hot-reloading in development?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-why-is-the-documentations-markdown-code-not-fully-optimized">4. Why is the documentation's markdown code not fully optimized?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5-is-this-app-secure-for-real-world-use">5. Is this app secure for real-world use?</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Backend</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../backend/overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../backend/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../backend/endpoints/">API Endpoints</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Frontend</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../frontend/overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../frontend/installation/">Installation</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Testing</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../testing/backend_tests/">Backend Tests</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../testing/frontend_tests/">Frontend Tests</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Deployment (Production)</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../deployment/overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../deployment/server_setup/">Server Setup</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Angler's Edge Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Home</li>
+      <li class="breadcrumb-item active">FAQ</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="ae-faq">AE - FAQ</h1>
+<p>Due to the significant variations in software stacks, intended use cases, best practices, business logic, and organizational responsibilities across companies, I chose to limit certain implementations and features in this project. These aspects would need to be re-evaluated and adapted to align with the specific standards and requirements of any given organization.</p>
+<p>TLDR: I'm not lazy, I'm efficient and don't want to code something that won't ever be used/seen.</p>
+<hr />
+<h3 id="1-why-doesnt-the-app-implement-location-based-trends-or-species-specific-techniques">1. Why doesn’t the app implement location-based trends or species-specific techniques?</h3>
+<ul>
+<li>This app is designed as a demonstration project to showcase my skills in building a full-stack application, rather than as a production-ready app. Implementing the business logic for location-based trends and techniques would require significantly more time and domain-specific data, which is unnecessary for this proof-of-concept.</li>
+</ul>
+<p><b>If this were a production application, I would:  </b>
+ - Implement data analysis tools to calculate location-based trends.<br />
+ - Integrate with real-time APIs for environmental data like weather or water conditions.<br />
+ - Use machine learning models or a rules-based system for species-specific suggestions.  </p>
+<hr />
+<h3 id="2-why-is-there-no-front-end-testing">2. Why is there no front-end testing?</h3>
+<ul>
+<li>This app does not include front-end testing because it is intended only as a demonstration of my abilities, not a production-ready product. That said, I have outlined in the documentation how I would implement front-end testing if needed.  </li>
+</ul>
+<p><b>For instance, I would:</b><br />
+ - Use Jest and React Testing Library for unit and integration testing of components.<br />
+ - Mock API responses using tools like Mock Service Worker (MSW) to simulate real-world scenarios.<br />
+ - Include snapshot tests for UI consistency and end-to-end tests using Cypress.<br />
+ - This omission was a trade-off to save time and focus on showcasing other areas of the application.  </p>
+<hr />
+<h3 id="3-why-dont-the-dockerfiles-support-hot-reloading-in-development">3. Why don’t the Dockerfiles support hot-reloading in development?</h3>
+<ul>
+<li>Hot-reloading for a development environment can be tricky to implement consistently across different systems due to differences in file system behaviors, especially with Docker's volume mounts on non-Linux systems. For this project, I opted to prioritize simplicity and reliability by providing instructions for setting up a custom development environment instead of over-complicating the Dockerfiles.  </li>
+</ul>
+<p><b>If this were a production app with active development, I would:</b><br />
+- Include Docker Compose configurations specifically tailored for development.<br />
+- Use tools like docker-sync or configure file system polling to enable hot-reloading across platforms.</p>
+<hr />
+<h3 id="4-why-is-the-documentations-markdown-code-not-fully-optimized">4. Why is the documentation's markdown code not fully optimized?</h3>
+<ul>
+<li>The primary goal of this project was to demonstrate my ability to build a functional full-stack application, not to create perfectly optimized production code. While I formatted and styled the Markdown documentation to ensure it is easy to read, optimizing the code was not a priority.</li>
+</ul>
+<p><b>Given more time, I would:</b> <br />
+ - Refactor repetitive code into reusable components.<br />
+ - Follow stricter linting rules and enforce consistent formatting.<br />
+ - Optimize API calls to reduce latency and improve performance.  </p>
+<hr />
+<h3 id="5-is-this-app-secure-for-real-world-use">5. Is this app secure for real-world use?</h3>
+<ul>
+<li>No, this app is not intended for production use.  </li>
+</ul>
+<p><b>It lacks:</b><br />
+- Proper user authentication and authorization. <br />
+- Secure handling of environment variables.<br />
+- Robust error handling for edge cases.<br />
+- These omissions are intentional, as the focus of the project is to demonstrate functionality, not production-level security.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../setup/" class="btn btn-neutral float-left" title="Setup"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../backend/overview/" class="btn btn-neutral float-right" title="Overview">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../setup/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../backend/overview/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
