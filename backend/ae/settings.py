@@ -31,7 +31,7 @@ def get_secret(setting, secrets=secrets):
 
 # Core settings
 SECRET_KEY = get_secret('SECRET_KEY')
-DEBUG = False  # Ensure this is False in production
+DEBUG = True  # Ensure this is False in production
 
 # Hosts and CORS
 ALLOWED_HOSTS = get_secret('ALLOWED_HOSTS')  # Should include 'anglingpros.com' and 'www.anglingpros.com'
@@ -134,8 +134,8 @@ REST_FRAMEWORK = {
 }
 
 # Security settings for production
-SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
-SECURE_SSL_REDIRECT = True  # Redirect HTTP to HTTPS
-CSRF_COOKIE_SECURE = True  # Ensure CSRF cookies are sent over HTTPS
-SESSION_COOKIE_SECURE = True  # Ensure session cookies are sent over HTTPS
+# SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+# SECURE_SSL_REDIRECT = True  # Redirect HTTP to HTTPS
+# CSRF_COOKIE_SECURE = True  # Ensure CSRF cookies are sent over HTTPS
+# SESSION_COOKIE_SECURE = True  # Ensure session cookies are sent over HTTPS
 
