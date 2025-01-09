@@ -3,6 +3,19 @@
 
 import React from 'react';
 
+// Import images as ESModules
+import redFishImage from '../assets/redfish.png';
+import snookImage from '../assets/snook.png';
+import snapperImage from '../assets/mangrove_snapper.png';
+
+// Map species names to their respective images
+const speciesImages: Record<string, string> = {
+  "redfish": redFishImage,
+  "snook": snookImage,
+  "mangrove snapper": snapperImage,
+  // Add more species as needed
+};
+
 interface SpeciesSelectorProps {
   speciesList: { id: number; species: string }[]; // List of available species.
   selectedSpecies: string; // Currently selected species.
@@ -24,7 +37,7 @@ const SpeciesSelector: React.FC<SpeciesSelectorProps> = ({
         >
           <img
             className="species-img"
-            src={`/src/assets/${fish.species.toLowerCase().replace(' ', '_')}.png`}
+            src={speciesImages[fish.species.toLowerCase()]}
             alt={fish.species}
           />
           <h4>{fish.species}</h4>

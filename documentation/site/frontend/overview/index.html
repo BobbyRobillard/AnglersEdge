@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Overview - Angler's Edge Documentation</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Overview";
+        var mkdocs_page_input_path = "frontend/overview.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Angler's Edge Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Home</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../..">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../setup/">Setup</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../faq/">FAQ</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Backend</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../backend/overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../backend/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../backend/endpoints/">API Endpoints</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Frontend</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Overview</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#summary">Summary</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#key-technologies">Key Technologies</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#file-structure">File Structure</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Testing</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../testing/backend_tests/">Backend Tests</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../testing/frontend_tests/">Frontend Tests</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Deployment (Production)</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../deployment/overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../deployment/server_setup/">Server Setup</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Angler's Edge Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Frontend</li>
+      <li class="breadcrumb-item active">Overview</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <style>
+.comment{
+    color:#aaa;
+}
+</style>
+
+<h1 id="frontend-documentation-overview">Frontend Documentation - Overview</h1>
+<h2 id="summary">Summary</h2>
+<p>The frontend for Anglers Edge is built with <strong>Vite</strong> and <strong>React</strong>. It provides a responsive user interface for users to explore fishing species, locations, and tips.</p>
+<hr />
+<h2 id="key-technologies">Key Technologies</h2>
+<ul>
+<li><strong>npm</strong>: JavaScript package manager (^10.9.0)</li>
+<li><strong>NodeJS</strong>: JavaScript runtime (dev server) (^20.0.0)</li>
+<li><strong>React</strong>: JavaScript library for building user interfaces (^18.2.0)</li>
+<li><strong>Vite</strong>: Fast development server and build tool (^6.0.0)</li>
+<li><strong>Axios</strong>: HTTP client for API integration (^1.7.0)</li>
+<li><strong>Bootstrap</strong>: For styling (^5.1.0)</li>
+</ul>
+<hr />
+<h2 id="file-structure">File Structure</h2>
+<p>frontend/<br />
+├── public/          <span class="comment"># Static assets</span><br />
+├── src/<br />
+│   ├── assets/  <span class="comment"># Media (Images, MP3, MP4)</span><br />
+│   ├── components/  <span class="comment"># Reusable React components</span><br />
+│   ├── pages/       <span class="comment"># Page-level components</span><br />
+│   ├── services/    <span class="comment"># API calls and helpers</span><br />
+│   ├── App.jsx      <span class="comment"># Main app entry point</span><br />
+│   └── index.js     <span class="comment"># Application entry point</span><br />
+├── index.html     <span class="comment"># Index file for displaying application</span><br />
+├── package.json     <span class="comment"># Project dependencies and scripts</span><br />
+└── vite.config.js   <span class="comment"># Vite configuration</span>  </p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../backend/endpoints/" class="btn btn-neutral float-left" title="API Endpoints"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../installation/" class="btn btn-neutral float-right" title="Installation">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../backend/endpoints/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../installation/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
