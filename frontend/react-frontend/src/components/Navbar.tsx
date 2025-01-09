@@ -32,7 +32,7 @@ const Navbar: React.FC = () => {
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" target="_blank" rel="noopener noreferrer" href="http://localhost:8001">
+            <a className="nav-link" target="_blank" rel="noopener noreferrer" href="https://docs.anglingpros.com">
               Documentation
             </a>
           </li>
